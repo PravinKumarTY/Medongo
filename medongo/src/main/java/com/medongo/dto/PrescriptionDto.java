@@ -5,10 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "prescription_info")
+/*@Entity
+@Table(name = "prescription_info")*/
 public class PrescriptionDto {
-	@Id
+	/*@Id
 	@Column(name="appt_id")
 	private String apptId;
 	@Column(name = "tablet")
@@ -57,6 +57,6 @@ public class PrescriptionDto {
 	}
 	public void setDrop(String drop) {
 		this.drop = drop;
-	}
+	}*/
 	
 }

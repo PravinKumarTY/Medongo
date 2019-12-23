@@ -5,10 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="patient_info")
+/*@Entity
+@Table(name="patient_info")*/
 public class PatientDto {
-	@Id
+	/*@Id
 	@Column(name="pat_id")
 	private String patId;
 	@Column(name="height")
@@ -56,5 +56,5 @@ public class PatientDto {
 	}
 	public void setRespiratoryRate(Double respiratoryRate) {
 		this.respiratoryRate = respiratoryRate;
-	}
+	}*/
 }

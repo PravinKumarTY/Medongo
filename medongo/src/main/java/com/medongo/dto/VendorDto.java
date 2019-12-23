@@ -5,10 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="vendor")
+/*@Entity
+@Table(name="vendor")*/
 public class VendorDto {
-	@Id
+	/*@Id
 	@Column(name="vendor_id",nullable =false,unique =true)
 	private String vendorId;
 	@Column(name ="vendor_name")
@@ -25,6 +25,5 @@ public class VendorDto {
 	}
 	public void setVendorName(String vendorName) {
 		this.vendorName = vendorName;
-	}
-	
+	}*/
 }

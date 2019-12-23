@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Table(name = "user_info")
 public class UserInfoDto {
@@ -21,6 +23,7 @@ public class UserInfoDto {
 	@Column(name ="password")
 	private String userPassword;
 	@Column(name ="dob")
+	@JsonFormat(pattern = "dd-MM-yyyy")
 	private Date dob;
 	@Column(name ="age")
 	private Double age;
@@ -30,6 +33,9 @@ public class UserInfoDto {
 	private String panId;
 	@Column(name="voter_id")
 	private long voterId;
+	@Column(name="phone_no")
+	private long phoneNo;
+	
 	public String getUserId() {
 		return userId;
 	}
@@ -90,6 +96,11 @@ public class UserInfoDto {
 	public void setVoterId(long voterId) {
 		this.voterId = voterId;
 	}
-	
+	public long getPhoneNo() {
+		return phoneNo;
+	}
+	public void setPhoneNo(long phoneNo) {
+		this.phoneNo = phoneNo;
+	}
 	
 }

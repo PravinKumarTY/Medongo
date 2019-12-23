@@ -6,10 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-@Entity
-@Table(name ="appointment")
+/*@Entity
+@Table(name ="appointment")*/
 public class AppointmentDto {
-	@Id
+	/*@Id
 	@Column(name = "appt_id",nullable = false,unique = true)
 	private String apptId;
 	@Column(name ="party_id_from",nullable = false)
@@ -58,6 +58,6 @@ public class AppointmentDto {
 	}
 	public void setStatusCode(int statusCode) {
 		this.statusCode = statusCode;
-	}
+	}*/
 	
 }

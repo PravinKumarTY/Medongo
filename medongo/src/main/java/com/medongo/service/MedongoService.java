@@ -1,5 +1,7 @@
 package com.medongo.service;
 
-public interface MedongoService {
+import com.medongo.dto.UserInfoDto;
 
+public interface MedongoService {
+	public boolean registerUser(UserInfoDto userInfo);
 }

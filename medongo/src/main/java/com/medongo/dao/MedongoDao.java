@@ -1,5 +1,7 @@
 package com.medongo.dao;
 
-public interface MedongoDao {
+import com.medongo.dto.UserInfoDto;
 
+public interface MedongoDao {
+	public boolean registerUser(UserInfoDto userInfo);
 }

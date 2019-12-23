@@ -5,14 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name ="diseases_info")
+/*@Entity
+@Table(name ="diseases_info")*/
 public class DiseasesDto {
-	@Id
+	/*@Id
 	@Column(name = "appt_id")
 	private String apptId;
 	@Column(name="diseases_name")
-	private String disesesName;
+	private String diseasesName;
 	
 	public String getApptId() {
 		return apptId;
@@ -20,11 +20,10 @@ public class DiseasesDto {
 	public void setApptId(String apptId) {
 		this.apptId = apptId;
 	}
-	public String getDisesesName() {
-		return disesesName;
+	public String getDiseasesName() {
+		return diseasesName;
 	}
-	public void setDisesesName(String disesesName) {
-		this.disesesName = disesesName;
-	}
-	
+	public void setDiseasesName(String diseasesName) {
+		this.diseasesName = diseasesName;
+	}*/
 }
