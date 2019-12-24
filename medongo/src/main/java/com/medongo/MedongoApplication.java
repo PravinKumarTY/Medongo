@@ -7,8 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MedongoApplication {
 
 	public static void main(String[] args) {
-		System.out.println("hello");
 		SpringApplication.run(MedongoApplication.class, args);
 	}
-
 }
