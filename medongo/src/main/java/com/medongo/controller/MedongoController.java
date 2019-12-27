@@ -1,11 +1,17 @@
 package com.medongo.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +31,13 @@ public class MedongoController {
 	
     @Autowired
 	private MedongoService service;
+    
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+    	SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+    	CustomDateEditor editor = new CustomDateEditor(format, true);
+		binder.registerCustomEditor(Date.class, editor);
+    }
 
     @PostMapping(path ="/registerUser",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
@@ -64,7 +77,7 @@ public class MedongoController {
         	response.setDescription("User Not Logged In ");
         }
         return response;
-    }//End of registerUser
+    }//End of login User
     
     @PostMapping(path = "/registerPatient",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
@@ -82,6 +95,40 @@ public class MedongoController {
     	return response;
     }
     
+    @GetMapping(path="/getAllDoctors",produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseData getAllDoctors() {
+    	ResponseData response = new ResponseData();
+    	List<UserInfoDto> doctorList=service.getDoctors();
+    	if(doctorList!=null) {
+    		response.setStatusCode(200);
+        	response.setStatus("success");
+        	response.setDescription("Doctros Record Found");
+        	response.setUserInfoList(doctorList);
+    	}else {
+    		response.setStatusCode(401);
+        	response.setStatus("success");
+        	response.setDescription("Doctros Record Not Found");
+    	}
+    	return response;
+    }
     
-
+    @GetMapping(path = "/getAllPatient",produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseData vewRegisteredPat() {
+    	ResponseData response = new ResponseData();
+    	List<PatientDto> patientList=service.vewRegisteredPat();
+    	if(patientList!=null) {
+    		response.setStatusCode(200);
+        	response.setStatus("success");
+        	response.setDescription("Patient Record Found");
+        	response.setPatInfoList(patientList);
+    	}else {
+    		response.setStatusCode(401);
+        	response.setStatus("failed");
+        	response.setDescription("Doctros Record Not Found");
+    	}
+    	return response;
+    }
+    
 }

@@ -137,5 +137,11 @@ public class PatientDto {
 	public void setFeverType(String feverType) {
 		this.feverType = feverType;
 	}
+	public String getSymptoms() {
+		return symptoms;
+	}
+	public void setSymptoms(String symptoms) {
+		this.symptoms = symptoms;
+	}
 	
 }

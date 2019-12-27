@@ -1,5 +1,7 @@
 package com.medongo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +26,15 @@ public class MedongoServiceImpl implements MedongoService{
 	@Override
 	public boolean registerPatient(PatientDto patientDto) {
 		return dao.registerPatient(patientDto);
+	}
+
+	@Override
+	public List<UserInfoDto> getDoctors() {
+		return dao.getDoctors();
+	}
+
+	@Override
+	public List<PatientDto> vewRegisteredPat() {
+		return dao.vewRegisteredPat();
 	}
 }
