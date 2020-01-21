@@ -19,16 +19,15 @@ public class PatientDto {
 	private String patName;
 	@Column(name="address")
 	private String address;
-	@Column(name="email",unique = true)
+	@Column(name="email")
 	private String email;
-	@Column(name ="phone_no",unique = true)
+	@Column(name ="phone_no")
 	private long phoneNo;
 	@Column(name="gender")
 	private String gender;
 	@Column(name="age")
 	private Double age;
 	@Column(name="dob")
-	@JsonFormat(pattern = "dd-MM-yyyy")
 	private Date dob;
 	@Column(name="height")
 	private Double height;
@@ -46,6 +45,8 @@ public class PatientDto {
 	private String feverType;
 	@Column(name="symptoms")
 	private String symptoms;
+	@Column(name = "party_id_to",nullable = false)
+	private String doctorId;
 	
 	public String getPatId() {
 		return patId;
@@ -142,6 +143,12 @@ public class PatientDto {
 	}
 	public void setSymptoms(String symptoms) {
 		this.symptoms = symptoms;
+	}
+	public String getDoctorId() {
+		return doctorId;
+	}
+	public void setDoctorId(String doctorId) {
+		this.doctorId = doctorId;
 	}
 	
 }

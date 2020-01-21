@@ -1,15 +1,22 @@
 package com.medongo.dto;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-/*@Entity
-@Table(name ="appointment")*/
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+@Entity
+@Table(name ="appointment")
 public class AppointmentDto {
-	/*@Id
+	@Id
 	@Column(name = "appt_id",nullable = false,unique = true)
 	private String apptId;
 	@Column(name ="party_id_from",nullable = false)
@@ -17,11 +24,15 @@ public class AppointmentDto {
 	@Column(name = "party_id_to",nullable = false)
 	private String partyIdTo;
 	@Column(name = "appt_date",nullable = false)
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date apptDate;
 	@Column(name = "vendor_id",nullable = false)
 	private String vendorId;
 	@Column(name = "status_code")
 	private int statusCode;
+	
+	@OneToMany(mappedBy = "appointment",fetch = FetchType.LAZY)
+	private List<Prescription> prescreption;
 	
 	public String getApptId() {
 		return apptId;
@@ -58,6 +69,12 @@ public class AppointmentDto {
 	}
 	public void setStatusCode(int statusCode) {
 		this.statusCode = statusCode;
-	}*/
+	}
+	public List<Prescription> getPrescreption() {
+		return prescreption;
+	}
+	public void setPrescreption(List<Prescription> prescreption) {
+		this.prescreption = prescreption;
+	}
 	
 }

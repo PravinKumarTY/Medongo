@@ -4,7 +4,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -22,8 +25,9 @@ public class UserInfoDto {
 	private String userEmail;
 	@Column(name ="password")
 	private String userPassword;
+	@Column(name ="gender")
+	private String gender;
 	@Column(name ="dob")
-	@JsonFormat(pattern = "dd-MM-yyyy")
 	private Date dob;
 	@Column(name ="age")
 	private Double age;
@@ -35,6 +39,12 @@ public class UserInfoDto {
 	private long voterId;
 	@Column(name="phone_no")
 	private long phoneNo;
+	
+	/*@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "vendor_id")
+	private VendorDto vendor;*/
+	@Column(name = "vendor_id")
+	private String vendorId;
 	
 	public String getUserId() {
 		return userId;
@@ -102,5 +112,24 @@ public class UserInfoDto {
 	public void setPhoneNo(long phoneNo) {
 		this.phoneNo = phoneNo;
 	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	/*public VendorDto getVendor() {
+		return vendor;
+	}
+	public void setVendor(VendorDto vendor) {
+		this.vendor = vendor;
+	}*/
+	public String getVendorId() {
+		return vendorId;
+	}
+	public void setVendorId(String vendorId) {
+		this.vendorId = vendorId;
+	}
+	
 	
 }
